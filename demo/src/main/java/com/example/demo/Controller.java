@@ -1,5 +1,5 @@
 package com.example.demo;
-import java.sql.Date;
+import java.util.Date;
 
 import javax.xml.crypto.Data;
 
@@ -13,16 +13,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class Controller {
-	@GetMapping("/api/current-time") public Date home() {
-		Date date=new Date(System.currentTimeMillis());
-	    return date;
+	@GetMapping("/api/current-time") 
+	public Date home() {
+		return new Date(System.currentTimeMillis());
 	}
-	@PostMapping("/EnterFio")
+	
+	@PostMapping("/EnterFio") 
 	String insert(@RequestBody Fio postFio)
 	{
-	    Fio objFio = new Fio(postFio.name, postFio.lastName, postFio.fatherName);
-	    String mes = "Hello, " + objFio.crFio() + " !";
-	    System.out.println(mes);
-	    return mes;
+	    Fio objFio = new Fio(postFio.getName(), postFio.getLastName(), postFio.getFatherName());
+	    return "Hello, " + objFio.toString() + " !";
 	}
 }
