@@ -1,9 +1,16 @@
 package com.example.demo;
 
+import jakarta.validation.constraints.Pattern;
+
 public class Fio {
 	
+	@Pattern(regexp = "^[а-яА-ЯёЁa-zA-Z]+$")
 	private String name;
+	
+	@Pattern(regexp = "^[а-яА-ЯёЁa-zA-Z]+$")
 	private String lastName;
+	
+	@Pattern(regexp = "^[а-яА-ЯёЁa-zA-Z]+$")
 	private String fatherName;
 	
 	public String getName() {

@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.validation.Valid;
+
 
 @RestController
 public class Controller {
@@ -19,9 +21,8 @@ public class Controller {
 	}
 	
 	@PostMapping("/EnterFio") 
-	String insert(@RequestBody Fio postFio)
+	String insert(@Valid @RequestBody Fio postFio)
 	{
-	    Fio objFio = new Fio(postFio.getName(), postFio.getLastName(), postFio.getFatherName());
-	    return "Hello, " + objFio.toString() + " !";
+	    return "Hello, " + postFio.toString() + " !";
 	}
 }
