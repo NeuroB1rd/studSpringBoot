@@ -31,6 +31,8 @@ public class FindMiddleNumController {
                 TimeUnit.MILLISECONDS.toMinutes(duration) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(duration)),
                 TimeUnit.MILLISECONDS.toSeconds(duration) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(duration)));
 
+        logControl.findMiddleNumLogging(result,hms);
+
         return "Значение из серидины массива:" + result + "Время поиска:" + hms + ".... Массив:" + Arrays.toString(fmm.getArray());
     }
 }

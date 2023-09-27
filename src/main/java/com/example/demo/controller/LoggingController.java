@@ -29,4 +29,8 @@ public class LoggingController {
         logger.info("Слово уже есть в HashMap");
     }
 
+    public void findMiddleNumLogging(int num,String time){
+        logger.info("Найденое число: {}, время на поиск: {}", num,time);
+    }
+
 }
