@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,4 +21,12 @@ public class LoggingController {
 
         return "Howdy! Check out the Logs to see the output...";
     }
+
+    public void vocalCountLogging(String word,int count){
+        logger.info("Входящее слово: {}, рассчитано кол-во гласных: {}", word,count);
+    }
+    public void vocalHashLogging(){
+        logger.info("Слово уже есть в HashMap");
+    }
+
 }

@@ -1,5 +1,6 @@
-package com.example.demo;
+package com.example.demo.controller;
 
+import com.example.demo.model.Fio;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,7 +12,7 @@ import java.util.Date;
 
 @RestController
 public class Controller {
-	@GetMapping("/api/current-time") 
+	@GetMapping("/api/current-time")
 	public Date home() {
 		return new Date(System.currentTimeMillis());
 	}
@@ -21,4 +22,6 @@ public class Controller {
 	{
 	    return "Hello, " + postFio.toString() + " !";
 	}
+
+
 }
