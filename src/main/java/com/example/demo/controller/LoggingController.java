@@ -22,15 +22,4 @@ public class LoggingController {
         return "Howdy! Check out the Logs to see the output...";
     }
 
-    public void vocalCountLogging(String word,int count){
-        logger.info("Входящее слово: {}, рассчитано кол-во гласных: {}", word,count);
-    }
-    public void vocalHashLogging(){
-        logger.info("Слово уже есть в HashMap");
-    }
-
-    public void findMiddleNumLogging(int num,String time){
-        logger.info("Найденое число: {}, время на поиск: {}", num,time);
-    }
-
 }

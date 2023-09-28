@@ -14,8 +14,6 @@ public class FindMiddleNumModel {
 
     private int highestNum;
 
-    private int[] array;
-
     public int getSize() {
         return size;
     }
@@ -32,12 +30,5 @@ public class FindMiddleNumModel {
         this.highestNum = highestNum;
     }
 
-    public int[] getArray() {
-        return array;
-    }
-
-    public void setArray(int[] array) {
-        this.array = array;
-    }
 
 }
