@@ -1,34 +1,16 @@
 package com.example.demo.model;
 
 import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
+import lombok.Getter;
+import lombok.Setter;
 
-import java.util.Random;
-import java.util.stream.IntStream;
-
+@Getter
+@Setter
 public class FindMiddleNumModel {
 
     @Min(1)
     private int size;
 
     private int highestNum;
-
-    public int getSize() {
-        return size;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
-    }
-
-    public int getHighestNum() {
-        return highestNum;
-    }
-
-    public void setHighestNum(int highestNum) {
-        this.highestNum = highestNum;
-    }
-
 
 }

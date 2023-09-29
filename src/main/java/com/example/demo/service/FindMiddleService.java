@@ -1,6 +1,5 @@
 package com.example.demo.service;
 
-import com.example.demo.controller.FindMiddleNumController;
 import com.example.demo.model.FindMiddleNumModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,10 +10,11 @@ import java.time.Instant;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
+
 @Service
 public class FindMiddleService {
 
-    Logger logger = LoggerFactory.getLogger(FindMiddleService.class);
+    private static final Logger logger = LoggerFactory.getLogger(FindMiddleService.class);
 
     private int[] genMassive(FindMiddleNumModel fmm){
         Random random = new Random();

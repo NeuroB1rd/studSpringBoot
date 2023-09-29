@@ -7,22 +7,35 @@ public class VocalCountModel {
 
     private static VocalCountModel VCM;
 
-    private static final Map<String,Integer> myMap = new HashMap<>();
+    // наименование констант в таком стиле
+    private static final Map<String,Integer> MY_MAP = new HashMap<>();
 
-    public static VocalCountModel getVCM(){
-        if(VCM == null){
+    // приватный конструктор, чтобы нельзя было создать экземпляр
+    // еще где то кроме статичного метода getVCM
+    private VocalCountModel() {
+
+    }
+
+    // Эти методы не должны быть статичными, так как у нас гарантировано будет 1 объект данного класса
+    // И эти методы доступны у этого экземпляра конкретно, а не у класса как статика, тогда нету смысла
+    //так как можно к ним обратиться без экземпляра класса.
+    public static VocalCountModel getVCM() {
+        if (VCM == null){
             VCM = new VocalCountModel();
         }
         return VCM;
     }
 
-    public static boolean isContain(String key){
-        return myMap.containsKey(key);
+    public boolean isContain(String key){
+        return MY_MAP.containsKey(key);
     }
-    public static Integer getHashWords(String key){
-        return myMap.get(key);
+
+    public Integer getHashWords(String key){
+        return MY_MAP.get(key);
     }
-    public static void addHashWord(String key,int value){
-        myMap.put(key,value);
+
+    public void addHashWord(String key,int value) {
+        MY_MAP.put(key,value);
     }
+
 }
