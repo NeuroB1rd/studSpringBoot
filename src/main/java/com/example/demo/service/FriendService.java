@@ -2,6 +2,8 @@ package com.example.demo.service;
 
 import com.example.demo.model.FriendMini;
 import com.example.demo.model.FriendModel;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -9,6 +11,7 @@ import java.util.List;
 
 @Service
 public class FriendService {
+    private static final Logger logger = LoggerFactory.getLogger(VocalCountService.class);
     private static FriendService FS;
     private List<FriendMini> friend = new ArrayList<>();
     private FriendMini f = new FriendMini();
@@ -36,6 +39,7 @@ public class FriendService {
         }
         friend.add(f);
         fm.setFriends(friend);
+        logger.info("Максимально длинное имя: " + f.getName());
 
         return fm;
     }

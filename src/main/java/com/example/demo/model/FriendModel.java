@@ -15,6 +15,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class FriendModel {
     private long id;
     //@Pattern(regexp = "^[a-z ,.'-]+$")
@@ -24,4 +25,5 @@ public class FriendModel {
     @NotEmpty
     private Date birthDate;
     private List<FriendMini> friends;
+
 }

@@ -12,6 +12,7 @@ import java.util.List;
 @Setter
 @ToString
 @NoArgsConstructor
+@AllArgsConstructor
 public class FriendDTO {
     private long id;
     //@Pattern(regexp = "^[a-z ,.'-]+$")
@@ -21,5 +22,4 @@ public class FriendDTO {
     @Pattern(regexp = "[0-9]{4}.[0-9]{2}.[0-9]{2}")
     private String birthDate;
     private List<FriendMini> friends;
-
 }
