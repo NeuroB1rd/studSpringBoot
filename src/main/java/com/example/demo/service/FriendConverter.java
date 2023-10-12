@@ -8,24 +8,13 @@ import org.springframework.stereotype.Service;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-@Service
+
 public class FriendConverter {
-    private static FriendConverter FC;
-    private String dateStr;
-    private FriendModel fmCl = new FriendModel();
-    private FriendDTO fdCl = new FriendDTO();
     DateFormat df = new SimpleDateFormat("yyyy.dd.MM");
 
-    private FriendConverter() {
-
-    }
-    public static FriendConverter getFriendConv() {
-        if (FC == null){
-            FC = new FriendConverter();
-        }
-        return FC;
-    }
-    public FriendModel DTOtoModel(FriendDTO fd){
+    public FriendModel toModel(FriendDTO fd){
+        String dateStr;
+        FriendModel fmCl = new FriendModel();
         dateStr = fd.getBirthDate();
         try {
             fmCl.setId(fd.getId());
@@ -40,7 +29,9 @@ public class FriendConverter {
         }
     }
 
-    public FriendDTO ModeltoDTO(FriendModel fm){
+    public FriendDTO toDTO(FriendModel fm){
+        String dateStr;
+        FriendDTO fdCl = new FriendDTO();
         dateStr = df.format(fm.getBirthDate());
         fdCl.setId(fm.getId());
         fdCl.setName(fm.getName());

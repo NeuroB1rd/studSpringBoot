@@ -21,13 +21,13 @@ import java.text.ParseException;
 public class FriendMapstructController {
 
     @Autowired
-    private final FriendService fFind;
+    private final FriendService friendService;
 
     @Autowired
-    private FriendMapper mapper;
+    private FriendMapper friendMapper;
 
     @PostMapping("/api/mapper/mapstruct/friends")
     String insert(@Valid @RequestBody FriendDTO fd) throws ParseException {
-        return mapper.toDto(fFind.findMaxCharFriend(mapper.toModel(fd))).toString();
+        return friendMapper.toDto(friendService.findMaxCharFriend(friendMapper.toModel(fd))).toString();
     }
 }

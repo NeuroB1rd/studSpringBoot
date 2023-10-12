@@ -14,10 +14,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FriendConverterTest {
-    FriendConverter fc = FriendConverter.getFriendConv();
+    public static final FriendConverter CONVENTER = new FriendConverter();
     DateFormat df = new SimpleDateFormat("yyyy.dd.MM");
     @Test
-    public void DTOtoModel() throws ParseException {
+    public void testConveterToModel() throws ParseException {
         FriendMini mini0 = new FriendMini(0,"Lopez Dixon");
         FriendMini mini1 = new FriendMini(1,"Solomon Lewis");
         FriendMini mini2 = new FriendMini(2,"Bradley Jordan");
@@ -31,23 +31,21 @@ public class FriendConverterTest {
 
         FriendModel actual = new FriendModel(345,"Curtis Russel","curtisrussell@otherside.com",df.parse("2005.30.09"),lm);
 
-        FriendModel expected = fc.DTOtoModel(dto);
+        FriendModel expected = CONVENTER.toModel(dto);
 
         Assert.assertEquals(expected.getId(),actual.getId());
         Assert.assertEquals(expected.getName(),actual.getName());
         Assert.assertEquals(expected.getEmail(),actual.getEmail());
         Assert.assertEquals(expected.getBirthDate(),actual.getBirthDate());
 
-        Assert.assertEquals(expected.getFriends().get(0).getId(),actual.getFriends().get(0).getId());
-        Assert.assertEquals(expected.getFriends().get(0).getName(),actual.getFriends().get(0).getName());
-        Assert.assertEquals(expected.getFriends().get(1).getId(),actual.getFriends().get(1).getId());
-        Assert.assertEquals(expected.getFriends().get(1).getName(),actual.getFriends().get(1).getName());
-        Assert.assertEquals(expected.getFriends().get(2).getId(),actual.getFriends().get(2).getId());
-        Assert.assertEquals(expected.getFriends().get(2).getName(),actual.getFriends().get(2).getName());
+        for(int i = 0;i> expected.getFriends().size(); i++){
+            Assert.assertEquals(expected.getFriends().get(i).getId(),actual.getFriends().get(i).getId());
+            Assert.assertEquals(expected.getFriends().get(i).getName(),actual.getFriends().get(i).getName());
+        }
     }
 
     @Test
-    public void ModeltoDTO() throws ParseException {
+    public void testConventerToDTO() throws ParseException {
         FriendMini mini0 = new FriendMini(0,"Lopez Dixon");
         FriendMini mini1 = new FriendMini(1,"Solomon Lewis");
         FriendMini mini2 = new FriendMini(2,"Bradley Jordan");
@@ -61,18 +59,16 @@ public class FriendConverterTest {
 
         FriendModel dto = new FriendModel(345,"Curtis Russel","curtisrussell@otherside.com",df.parse("2005.30.09"),lm);
 
-        FriendDTO expected = fc.ModeltoDTO(dto);
+        FriendDTO expected = CONVENTER.toDTO(dto);
 
         Assert.assertEquals(expected.getId(),actual.getId());
         Assert.assertEquals(expected.getName(),actual.getName());
         Assert.assertEquals(expected.getEmail(),actual.getEmail());
         Assert.assertEquals(expected.getBirthDate(),actual.getBirthDate());
 
-        Assert.assertEquals(expected.getFriends().get(0).getId(),actual.getFriends().get(0).getId());
-        Assert.assertEquals(expected.getFriends().get(0).getName(),actual.getFriends().get(0).getName());
-        Assert.assertEquals(expected.getFriends().get(1).getId(),actual.getFriends().get(1).getId());
-        Assert.assertEquals(expected.getFriends().get(1).getName(),actual.getFriends().get(1).getName());
-        Assert.assertEquals(expected.getFriends().get(2).getId(),actual.getFriends().get(2).getId());
-        Assert.assertEquals(expected.getFriends().get(2).getName(),actual.getFriends().get(2).getName());
+        for(int i = 0;i> expected.getFriends().size(); i++){
+            Assert.assertEquals(expected.getFriends().get(i).getId(),actual.getFriends().get(i).getId());
+            Assert.assertEquals(expected.getFriends().get(i).getName(),actual.getFriends().get(i).getName());
+        }
     }
 }

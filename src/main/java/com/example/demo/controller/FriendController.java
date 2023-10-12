@@ -20,19 +20,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class FriendController {
     @Autowired
-    private final FriendConverter fConv = FriendConverter.getFriendConv();
+    private static final FriendConverter CONVENTER = new FriendConverter();
 
     @Autowired
-    private final FriendService fFind;
+    private final FriendService friendService;
 
     @Autowired
-    private FriendMapper mapper;
+    private FriendMapper friendMapper;
 
 
     @PostMapping("/api/mapper/java/friends")
     String insert(@Valid @RequestBody FriendDTO fd)
     {
-        return fConv.ModeltoDTO(fFind.findMaxCharFriend(fConv.DTOtoModel(fd))).toString();
+        return CONVENTER.toDTO(friendService.findMaxCharFriend(CONVENTER.toModel(fd))).toString();
     }
 
 }

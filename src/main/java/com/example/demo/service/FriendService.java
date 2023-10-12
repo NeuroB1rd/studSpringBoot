@@ -12,19 +12,10 @@ import java.util.List;
 @Service
 public class FriendService {
     private static final Logger logger = LoggerFactory.getLogger(VocalCountService.class);
-    private static FriendService FS;
     private List<FriendMini> friend = new ArrayList<>();
     private FriendMini f = new FriendMini();
     private List<FriendMini> friends;
-    private FriendService() {
 
-    }
-    public static FriendService getFriendService() {
-        if (FS == null){
-            FS = new FriendService();
-        }
-        return FS;
-    }
     public FriendModel findMaxCharFriend(FriendModel fm){
         int count = 0;
         int start = 0;
