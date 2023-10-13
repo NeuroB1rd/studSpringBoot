@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 public class FriendController {
-    @Autowired
     private static final FriendConverter CONVENTER = new FriendConverter();
 
     @Autowired
