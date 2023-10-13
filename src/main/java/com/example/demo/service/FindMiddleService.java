@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 
 import java.time.Duration;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -44,4 +46,6 @@ public class FindMiddleService {
 
         return "Значение из серидины массива:" + middle + "Время поиска:" + hms + ".... Массив:" + Arrays.toString(a);
     }
+
+    
 }
